@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arinjay Bahuguna – Mundan Ceremony</title>
+  <meta name="description" content="You are cordially invited to the Mundan Ceremony of Arinjay Bahuguna, 17–19 February 2027, Phagwara.">
+  <meta name="theme-color" content="#FFF3D2">
+  <meta property="og:title" content="Arinjay Bahuguna – Mundan Ceremony">
+  <meta property="og:description" content="Hair Tying, Mundan &amp; Haldi and Party Night, 17–19 February 2027, Phagwara.">
+
+  <!-- Hide animated elements until the scripts reveal them.
+       The class is removed again if animations cannot run, so nothing stays invisible. -->
+  <script>
+    document.documentElement.classList.add('js', 'lazy');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.remove('js');
+    }
+    setTimeout(function () {
+      if (!window.gsap) document.documentElement.classList.remove('js');
+    }, 2000);
+  </script>
+
+  <!-- Preload the first-screen artwork so it appears immediately.
+       (AVIF is requested only by browsers that support it; others use the CSS WebP fallback.) -->
+  <link rel="preload" as="image" type="image/avif" href="assets/images/background-m.avif" media="(max-width: 700px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/avif" href="assets/images/portrait-m.avif" media="(max-width: 700px)">
+  <link rel="preload" as="image" type="image/avif" href="assets/images/pot-m.avif" media="(max-width: 700px)">
+  <link rel="preload" as="image" type="image/avif" href="assets/images/background.avif" media="(min-width: 701px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/avif" href="assets/images/portrait.avif" media="(min-width: 701px)">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
+
+  <!-- Styles (order matters: each file builds on the previous ones) -->
+  <link rel="stylesheet" href="css/01-tokens.css">
+  <link rel="stylesheet" href="css/02-base.css">
+  <link rel="stylesheet" href="css/03-invitation.css">
+  <link rel="stylesheet" href="css/04-hero.css">
+  <link rel="stylesheet" href="css/05-events.css">
+  <link rel="stylesheet" href="css/06-closing.css">
+  <link rel="stylesheet" href="css/07-effects.css">
+  <link rel="stylesheet" href="css/08-mobile-performance.css">
+  <link rel="stylesheet" href="css/09-accessibility.css">
+</head>
+
+<body>
+  <main class="invitation" id="invitation">
+
+    <!-- Background and corner decorations -->
+    <div class="backdrop"></div>
+    <div class="light-rays"></div>
+    <div class="pearl-corner pearl-corner--left" aria-hidden="true"></div>
+    <div class="pearl-corner pearl-corner--right" aria-hidden="true"></div>
+
+    <!-- Hanging pots -->
+    <div class="pots">
+      <div class="pot pot--left reveal" role="img" aria-label="Golden hanging pot of curd with marigold flowers"></div>
+      <div class="pot pot--right reveal" role="img" aria-label="Golden hanging pot of curd with marigold flowers"></div>
+    </div>
+
+    <!-- Hero -->
+    <p class="centered devotional reveal" data-fit-size="4.2" data-fit-max-width="46"><span class="line-mask"><span class="line-mask__text">|| जय श्री कृष्ण ||</span></span></p>
+    <p class="centered invitation-message body-text reveal" data-fit-size="3.5" data-fit-max-width="66">
+      <span class="line-mask"><span class="line-mask__text">With the blessings of Lord Krishna</span></span>
+      <span class="line-mask"><span class="line-mask__text">and our beloved family,</span></span>
+      <span class="line-mask"><span class="line-mask__text">You are cordially invited</span></span>
+      <span class="line-mask"><span class="line-mask__text">to celebrate the auspicious</span></span>
+    </p>
+    <h1 class="centered script-text title-ceremony reveal" data-fit-size="9.5" data-fit-width="57.5"><span class="line-mask"><span class="line-mask__text">Mundan Ceremony</span></span></h1>
+
+    <div class="halo reveal" aria-hidden="true">
+      <svg class="halo__ring--inner" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="49.6" fill="none" stroke="#F3A718" stroke-width=".22" opacity=".7"/>
+        <circle cx="50" cy="50" r="46.6" fill="none" stroke="#E6B84A" stroke-width=".9" stroke-linecap="round" stroke-dasharray=".1 2.3" opacity=".8"/>
+      </svg>
+      <svg class="halo__ring--outer" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="52.4" fill="none" stroke="#F3A718" stroke-width=".18" stroke-dasharray="5 3 1 3" opacity=".55"/>
+      </svg>
+    </div>
+
+    <div class="portrait reveal" role="img" aria-label="Arinjay dressed as Bal Krishna">
+      <div class="portrait__inner">
+        <span class="portrait__photo"></span>
+        <span class="portrait__feather"></span>
+      </div>
+    </div>
+
+    <h2 class="centered script-text title-name reveal" data-fit-size="9" data-fit-width="57.3"><span class="line-mask"><span class="line-mask__text">Arinjay Bahuguna</span></span></h2>
+
+    <!-- Event: Hair Tying Ceremony -->
+    <section class="event-frame event-frame--first reveal" id="hair-tying" aria-label="Hair Tying Ceremony">
+      <div class="event-frame__sheen"></div>
+      <div class="event-frame__sweep"></div>
+      <span class="event-frame__feather event-frame__feather--left" aria-hidden="true"></span>
+      <span class="event-frame__feather event-frame__feather--right" aria-hidden="true"></span>
+      <h3 class="event-frame__title script-text" data-fit-size="6.4" data-fit-width="50.2"><span class="line-mask"><span class="line-mask__text">Hair Tying Ceremony</span></span></h3>
+      <p class="event-frame__date body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">Wednesday, 17 February 2027</span></span></p>
+      <p class="event-frame__time body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">8:00 PM Onwards</span></span></p>
+      <p class="event-frame__venue body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">The Grand Ambassador Hotel</span></span></p>
+      <p class="event-frame__city body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">Phagwara</span></span></p>
+    </section>
+
+    <!-- Event: Mundan &amp; Haldi -->
+    <section class="event-frame event-frame--second reveal" id="mundan-haldi" aria-label="Mundan &amp; Haldi">
+      <div class="event-frame__sheen"></div>
+      <div class="event-frame__sweep"></div>
+      <span class="event-frame__feather event-frame__feather--left" aria-hidden="true"></span>
+      <span class="event-frame__feather event-frame__feather--right" aria-hidden="true"></span>
+      <h3 class="event-frame__title script-text" data-fit-size="6.4" data-fit-width="38.1"><span class="line-mask"><span class="line-mask__text">Mundan &amp; Haldi</span></span></h3>
+      <p class="event-frame__date body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">Thursday, 18 February 2027</span></span></p>
+      <p class="event-frame__time body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">8:00 AM Onwards</span></span></p>
+      <p class="event-frame__venue body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">The Grand Ambassador Hotel</span></span></p>
+      <p class="event-frame__city body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">Phagwara</span></span></p>
+    </section>
+
+    <!-- Event: Party Night -->
+    <section class="event-frame event-frame--third reveal" id="party-night" aria-label="Party Night">
+      <div class="event-frame__sheen"></div>
+      <div class="event-frame__sweep"></div>
+      <span class="event-frame__feather event-frame__feather--left" aria-hidden="true"></span>
+      <span class="event-frame__feather event-frame__feather--right" aria-hidden="true"></span>
+      <h3 class="event-frame__title script-text" data-fit-size="6.4" data-fit-width="26.9"><span class="line-mask"><span class="line-mask__text">Party Night</span></span></h3>
+      <p class="event-frame__date body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">Friday, 19 February 2027</span></span></p>
+      <p class="event-frame__time body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">7:00 PM Onwards</span></span></p>
+      <p class="event-frame__venue body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">The Imperial Poonam Hotel</span></span></p>
+      <p class="event-frame__city body-text" data-fit-size="3.4" data-fit-max-width="58"><span class="line-mask"><span class="line-mask__text">Phagwara</span></span></p>
+    </section>
+
+    <!-- Closing -->
+    <h2 class="centered script-text closing-title reveal" data-fit-size="6.6" data-fit-width="77.9"><span class="line-mask"><span class="line-mask__text">Your Presence Is Our Greatest Gift</span></span></h2>
+    <p class="centered body-text closing-note reveal" data-fit-size="3.3" data-fit-max-width="70"><span class="line-mask"><span class="line-mask__text">Come with your blessings, leave</span></span><span class="line-mask"><span class="line-mask__text">with beautiful memories.</span></span></p>
+
+    <div class="floating-pearl" aria-hidden="true"></div>
+    <div class="silk reveal" role="img" aria-label="Flowing blue silk with white flowers and a peacock feather">
+      <span class="silk__feather"></span>
+    </div>
+  </main>
+
+  <!-- Page-level effects -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Animation library (GSAP). `defer` lets the page paint while it downloads. -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Our scripts (order matters) -->
+  <script defer src="js/config.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/fit-text.js"></script>
+  <script defer src="js/glints.js"></script>
+  <script defer src="js/lazy-images.js"></script>
+  <script defer src="js/particles.js"></script>
+  <script defer src="js/animations.js"></script>
+  <script defer src="js/interactions.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>
