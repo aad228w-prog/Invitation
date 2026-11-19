@@ -1,0 +1,86 @@
+/* ==========================================================================
+   01 · Design tokens
+   Colours, fonts and image paths live here so they can be changed in one place.
+
+   Images come in four flavours so every visitor downloads the smallest file
+   their screen and browser can use:
+     desktop WebP   (default)
+     phone WebP     (-m files, screens up to 700px wide)
+     desktop AVIF   (browsers that support AVIF, ~50% smaller)
+     phone AVIF     (phones that support AVIF)
+   ========================================================================== */
+
+:root {
+  /* Brand colours */
+  --color-saffron: #F3A718;
+  --color-blue: #4A78A4;
+  --color-gold-pale: #FFE08A;
+  --color-page: #DCEBF3;
+
+  /* Fonts (loaded from Google Fonts in index.html) */
+  --font-script: 'Sacramento', cursive;
+  --font-body: 'Klee One', serif;
+
+  /* Images: desktop WebP (paths are relative to this css/ folder) */
+  --img-background: url('../assets/images/background.webp');
+  --img-pearls-left: url('../assets/images/pearls-left.webp');
+  --img-pearls-right: url('../assets/images/pearls-right.webp');
+  --img-pot: url('../assets/images/pot.webp');
+  --img-portrait: url('../assets/images/portrait.webp');
+  --img-portrait-feather: url('../assets/images/portrait-feather.webp');
+  --img-frame: url('../assets/images/frame.webp');
+  --img-frame-feather-left: url('../assets/images/frame-feather-left.webp');
+  --img-frame-feather-right: url('../assets/images/frame-feather-right.webp');
+  --img-silk: url('../assets/images/silk.webp');
+  --img-silk-feather: url('../assets/images/silk-feather.webp');
+}
+
+/* Phones: smaller WebP files */
+@media (max-width: 700px) {
+  :root {
+    --img-background: url('../assets/images/background-m.webp');
+    --img-pearls-left: url('../assets/images/pearls-left-m.webp');
+    --img-pearls-right: url('../assets/images/pearls-right-m.webp');
+    --img-pot: url('../assets/images/pot-m.webp');
+    --img-portrait: url('../assets/images/portrait-m.webp');
+    --img-portrait-feather: url('../assets/images/portrait-feather-m.webp');
+    --img-frame: url('../assets/images/frame-m.webp');
+    --img-frame-feather-left: url('../assets/images/frame-feather-left-m.webp');
+    --img-frame-feather-right: url('../assets/images/frame-feather-right-m.webp');
+    --img-silk: url('../assets/images/silk-m.webp');
+    --img-silk-feather: url('../assets/images/silk-feather-m.webp');
+  }
+}
+
+/* Browsers that understand AVIF: even smaller files */
+@supports (background-image: image-set(url('../assets/images/frame.avif') type('image/avif'))) {
+  :root {
+    --img-background: url('../assets/images/background.avif');
+    --img-pearls-left: url('../assets/images/pearls-left.avif');
+    --img-pearls-right: url('../assets/images/pearls-right.avif');
+    --img-pot: url('../assets/images/pot.avif');
+    --img-portrait: url('../assets/images/portrait.avif');
+    --img-portrait-feather: url('../assets/images/portrait-feather.avif');
+    --img-frame: url('../assets/images/frame.avif');
+    --img-frame-feather-left: url('../assets/images/frame-feather-left.avif');
+    --img-frame-feather-right: url('../assets/images/frame-feather-right.avif');
+    --img-silk: url('../assets/images/silk.avif');
+    --img-silk-feather: url('../assets/images/silk-feather.avif');
+  }
+
+  @media (max-width: 700px) {
+    :root {
+      --img-background: url('../assets/images/background-m.avif');
+      --img-pearls-left: url('../assets/images/pearls-left-m.avif');
+      --img-pearls-right: url('../assets/images/pearls-right-m.avif');
+      --img-pot: url('../assets/images/pot-m.avif');
+      --img-portrait: url('../assets/images/portrait-m.avif');
+      --img-portrait-feather: url('../assets/images/portrait-feather-m.avif');
+      --img-frame: url('../assets/images/frame-m.avif');
+      --img-frame-feather-left: url('../assets/images/frame-feather-left-m.avif');
+      --img-frame-feather-right: url('../assets/images/frame-feather-right-m.avif');
+      --img-silk: url('../assets/images/silk-m.avif');
+      --img-silk-feather: url('../assets/images/silk-feather-m.avif');
+    }
+  }
+}

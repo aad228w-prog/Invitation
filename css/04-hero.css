@@ -1,0 +1,166 @@
+/* ==========================================================================
+   04 · Hero (top of the page)
+   Light rays, pearl corners, hanging pots, headline text, halo and portrait.
+   ========================================================================== */
+
+/* ---- Light rays ---------------------------------------------------------- */
+.light-rays {
+  left: 0;
+  top: 0;
+  width: 100cqw;
+  height: 70cqw;
+  pointer-events: none;
+  background: repeating-conic-gradient(
+    from 188deg at 14% -10%,
+    #FFF3C400 0 5deg,
+    #FFF3C46B 6.5deg 8.5deg,
+    #FFF3C400 10deg 15deg
+  );
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  mask-image: linear-gradient(180deg, #000 10%, transparent 90%);
+  transform-origin: 14% 0;
+  animation: rays-sweep 10s ease-in-out infinite alternate;
+}
+
+@keyframes rays-sweep {
+  from { opacity: 0.28; transform: rotate(-1.5deg); }
+  to   { opacity: 0.62; transform: rotate(1.5deg); }
+}
+
+/* ---- Pearl necklaces (sharp, high-resolution corners) --------------------- */
+.pearl-corner {
+  top: 0;
+  width: 24.27cqw;
+  height: 15.05cqw;
+  pointer-events: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  mask-composite: intersect; /* fades the inner and bottom edges into the backdrop */
+}
+
+.pearl-corner--left {
+  left: 0;
+  background-image: var(--img-pearls-left);
+  mask-image:
+    linear-gradient(90deg,  #000 80%, transparent),
+    linear-gradient(180deg, #000 78%, transparent);
+}
+
+.pearl-corner--right {
+  left: 75.73cqw;
+  background-image: var(--img-pearls-right);
+  mask-image:
+    linear-gradient(270deg, #000 80%, transparent),
+    linear-gradient(180deg, #000 78%, transparent);
+}
+
+/* ---- Hanging pots --------------------------------------------------------- */
+.pots {
+  inset: 0;
+  pointer-events: none;
+}
+
+.pots > * {
+  position: absolute;
+}
+
+.pot {
+  width: 22.5cqw;
+  aspect-ratio: 1199 / 1312;
+  background: var(--img-pot) center / contain no-repeat;
+  transform-origin: 50% 0; /* swings from the top of the chains */
+}
+
+.pot--left  { left: -4.98cqw; top: 15.66cqw; }
+.pot--right { left: 81.92cqw; top: 17.48cqw; }
+
+/* ---- Headline text ---------------------------------------------------------
+   Sizes are large enough to read comfortably on a phone (about 16px and 14px on a
+   390px-wide screen). The message is set in four short lines so it stays between the
+   hanging pots. js/fit-text.js shrinks them only if a line would ever
+   become wider than its `data-fit-max-width`. */
+.devotional {
+  top: 10.6cqw;
+  font-size: 4.2cqw;
+  font-weight: 600;
+  color: var(--color-saffron);
+}
+
+.invitation-message {
+  top: 25.6cqw;
+  font-size: 3.5cqw;
+  font-weight: 600;
+  line-height: 4.9cqw;
+  text-shadow: 0 0 0.8cqw #FFFDF0, 0 0 1.6cqw #FFFDF0; /* soft light halo keeps it legible over the clouds */
+}
+
+/* font sizes below are fine-tuned by js/fit-text.js to match the design widths */
+.title-ceremony {
+  top: 48.8cqw;
+  display: block;
+}
+
+.title-name {
+  top: 134cqw;
+  display: block;
+}
+
+/* ---- Halo behind the portrait ---------------------------------------------- */
+.halo {
+  left: 13cqw;
+  top: 52.7cqw;
+  width: 74cqw;
+  height: 74cqw;
+  pointer-events: none;
+}
+
+.halo::before {
+  content: "";
+  position: absolute;
+  inset: -22%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFE9A866 0, #FFE9A822 45%, #FFE9A800 70%);
+  animation: halo-breathe 6s ease-in-out infinite;
+}
+
+.halo svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.halo__ring--inner { animation: ring-spin 110s linear infinite; }
+.halo__ring--outer { animation: ring-spin 170s linear infinite reverse; }
+
+@keyframes ring-spin     { to { transform: rotate(360deg); } }
+@keyframes halo-breathe  { 50% { transform: scale(1.07); opacity: 0.75; } }
+
+/* ---- Portrait -------------------------------------------------------------- */
+.portrait {
+  left: 11.25cqw;
+  top: 53.35cqw;
+  width: 68.8cqw;
+  aspect-ratio: 640 / 674;
+}
+
+.portrait__inner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.portrait__photo,
+.portrait__feather {
+  position: absolute;
+  inset: 0;
+  background: var(--img-portrait) center / contain no-repeat;
+}
+
+/* The headband feather is a separate layer so it can sway on its own */
+.portrait__feather {
+  background-image: var(--img-portrait-feather);
+  transform-origin: 32% 11.3%;
+}

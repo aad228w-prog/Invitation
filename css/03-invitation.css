@@ -1,0 +1,30 @@
+/* ==========================================================================
+   03 · Invitation canvas
+   The whole design is one tall canvas with a fixed 412 : 1568 ratio.
+   Children are positioned with `cqw` units (1cqw = 1% of the canvas width),
+   so the layout stays identical at every screen size.
+   ========================================================================== */
+
+.invitation {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 412 / 1568;
+  margin: 0 auto;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.invitation > * {
+  position: absolute;
+}
+
+.invitation,
+.invitation * {
+  image-rendering: auto;
+}
+
+/* Sky, clouds and baked-in pearl necklaces */
+.backdrop {
+  inset: 0;
+  background: var(--img-background) 0 0 / 100% 100% no-repeat;
+}

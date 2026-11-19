@@ -1,0 +1,71 @@
+/* ==========================================================================
+   02 · Base
+   Reset, page defaults and small helpers shared by every component.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--color-page);
+  color: var(--color-blue);
+  font-family: var(--font-body);
+}
+
+/* ---- Text helpers ------------------------------------------------------- */
+
+/* Centres an absolutely positioned element on its `left: 50%` anchor */
+.centered {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.script-text {
+  font-family: var(--font-script);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-saffron);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  color: var(--color-blue);
+}
+
+/* Each line of text sits inside a mask so it can slide up into view */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.28em 0;
+  margin: -0.28em 0;
+}
+
+.script-text .line-mask {
+  padding: 0.28em 0.15em; /* extra room for the script's swashes */
+  margin: -0.28em -0.15em;
+}
+
+.line-mask__text {
+  display: block;
+  will-change: transform;
+}
+
+/* ---- Reveal state --------------------------------------------------------
+   Elements marked `.reveal` stay hidden until JavaScript fades them in.
+   The `js` class is added by the inline script in index.html and removed again
+   if animations are unavailable, so content is never left invisible. */
+.js .reveal {
+  opacity: 0;
+}

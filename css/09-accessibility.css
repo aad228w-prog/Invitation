@@ -1,0 +1,25 @@
+/* ==========================================================================
+   09 · Accessibility
+   Visitors who ask their device for less motion get a calm, static page.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before {
+    animation: none !important;
+  }
+
+  .event-frame {
+    transition: none;
+  }
+
+  .glint,
+  #particles,
+  .light-rays {
+    display: none;
+  }
+}

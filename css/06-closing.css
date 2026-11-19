@@ -1,0 +1,70 @@
+/* ==========================================================================
+   06 · Closing section
+   Closing message, floating pearl and the silk-and-flowers border.
+   ========================================================================== */
+
+.closing-title {
+  top: 320.8cqw;
+  display: block;
+}
+
+.closing-note {
+  top: 331cqw;
+  font-size: 3.3cqw;
+  line-height: 5cqw;
+  font-weight: 600;
+  text-shadow: 0 0 0.8cqw #FFFDF0, 0 0 1.6cqw #FFFDF0;
+}
+
+.floating-pearl {
+  left: 47.8cqw;
+  top: 351.5cqw;
+  width: 9.6cqw;
+  height: 9.6cqw;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 34% 28%, #FFF 0, #FFF9E8 20%, #F2E4C4 58%, #CDB27C 100%);
+  box-shadow: 0 0 3.4cqw #FFF1BD, 0 0.6cqw 1.4cqw #80613D55;
+  animation: pearl-bob 5s ease-in-out infinite;
+}
+
+/* Small highlight that makes the pearl look round */
+.floating-pearl::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: 14%;
+  width: 26%;
+  height: 18%;
+  border-radius: 50%;
+  background: #FFFFFFDD;
+  filter: blur(0.15cqw);
+  transform: rotate(-28deg);
+}
+
+@keyframes pearl-bob {
+  50% { transform: translateY(-1cqw); }
+}
+
+.silk {
+  left: 0;
+  bottom: 0.7cqw;
+  width: 100cqw;
+  height: 56.3cqw;
+  pointer-events: none;
+  background: var(--img-silk) 0 0 / 100% 100% no-repeat;
+  will-change: transform;
+}
+
+.silk__feather {
+  position: absolute;
+  inset: 0;
+  background: var(--img-silk-feather) 0 0 / 100% 100% no-repeat;
+  transform-origin: 97.4% 69.4%;
+}
+
+/* Lazy loading: the silk artwork is fetched only when the visitor nears the bottom */
+.lazy .silk:not(.is-near),
+.lazy .silk:not(.is-near) .silk__feather {
+  background-image: none;
+}

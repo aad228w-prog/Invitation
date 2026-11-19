@@ -1,0 +1,30 @@
+/* ==========================================================================
+   08 · Mobile performance
+   Phones skip the effects that are expensive to paint and only make sense with
+   a mouse, so scrolling and animation stay smooth on mid-range devices.
+   ========================================================================== */
+
+@media (max-width: 700px) {
+  /* Large blended or filtered layers are costly on phone GPUs */
+  .event-frame__sweep,
+  .event-frame__sheen {
+    display: none;
+  }
+
+  .event-frame__feather,
+  .silk__feather,
+  .portrait__feather {
+    animation: none;
+  }
+
+  .light-rays {
+    mix-blend-mode: normal;
+  }
+}
+
+/* Touch screens have no hover, so the cursor-following light is never needed */
+@media (hover: none) {
+  .event-frame__sheen {
+    display: none;
+  }
+}

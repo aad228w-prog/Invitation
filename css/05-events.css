@@ -1,0 +1,119 @@
+/* ==========================================================================
+   05 · Event frames
+   Three golden frames stacked down the page, each holding one event.
+   ========================================================================== */
+
+.event-frame {
+  left: 3.8cqw;
+  width: 92.45cqw;
+  height: 52.2cqw;
+  background: var(--img-frame) 0 0 / 100% 100% no-repeat;
+  transition: filter 0.6s;
+}
+
+.event-frame--first  { top: 143.8cqw; --sweep-delay: 0s; }
+.event-frame--second { top: 195.2cqw; --sweep-delay: -2.3s; }
+.event-frame--third  { top: 246.4cqw; --sweep-delay: -4.6s; }
+
+.event-frame:hover {
+  filter: drop-shadow(0 1.6cqw 2cqw #80613D55);
+}
+
+/* Every child is centred on the frame's horizontal middle */
+.event-frame > * {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ---- Text -------------------------------------------------------------------- */
+.event-frame__title { top: 15.2cqw; font-weight: 400; }
+.event-frame__date  { top: 23.5cqw; }
+.event-frame__time  { top: 29.2cqw; }
+.event-frame__venue { top: 35cqw; }
+.event-frame__city  { top: 40cqw; }
+
+.event-frame__date,
+.event-frame__time,
+.event-frame__venue,
+.event-frame__city {
+  font-size: 3.4cqw;
+}
+
+/* ---- Full-size overlay layers (feathers, light effects) ------------------------ */
+.event-frame > .event-frame__feather,
+.event-frame > .event-frame__sheen,
+.event-frame > .event-frame__sweep {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  pointer-events: none;
+}
+
+/* Feathers are cut out of the frame artwork so they can sway independently */
+.event-frame__feather {
+  background: no-repeat 0 0 / 100% 100%;
+}
+
+.event-frame__feather--left {
+  background-image: var(--img-frame-feather-left);
+  transform-origin: 7.49% 62.2%;
+}
+
+.event-frame__feather--right {
+  background-image: var(--img-frame-feather-right);
+  transform-origin: 95.2% 48.4%;
+}
+
+/* Soft light that follows the cursor (position is set by js/interactions.js) */
+.event-frame__sheen {
+  -webkit-mask: var(--img-frame) center / 100% 100% no-repeat;
+          mask: var(--img-frame) center / 100% 100% no-repeat;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    #FFFFFFCC,
+    #F3A71833 28%,
+    #FFFFFF00 55%
+  );
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.event-frame:hover .event-frame__sheen {
+  opacity: 1;
+}
+
+/* A highlight that sweeps across the golden border every few seconds */
+.event-frame__sweep {
+  -webkit-mask: var(--img-frame) center / 100% 100% no-repeat;
+          mask: var(--img-frame) center / 100% 100% no-repeat;
+  background: linear-gradient(105deg, #FFFFFF00 42%, #FFFFFFCC 50%, #FFFFFF00 58%)
+              160% 0 / 260% 100% no-repeat;
+  mix-blend-mode: soft-light;
+  animation: frame-sweep 7s ease-in-out infinite var(--sweep-delay, 0s);
+}
+
+@keyframes frame-sweep {
+  0%        { background-position: 160% 0; }
+  48%, 100% { background-position: -60% 0; }
+}
+
+/* ---- Lazy loading ----------------------------------------------------------------
+   Below-the-fold artwork is withheld until js/lazy-images.js marks the frame as
+   `.is-near` (about one screen before it is needed). Without JavaScript the
+   `lazy` class is never set, so everything simply loads normally. */
+.lazy .event-frame:not(.is-near),
+.lazy .event-frame:not(.is-near) .event-frame__feather {
+  background-image: none;
+}
+
+.lazy .event-frame:not(.is-near) .event-frame__sheen,
+.lazy .event-frame:not(.is-near) .event-frame__sweep {
+  -webkit-mask-image: none;
+          mask-image: none;
+}
